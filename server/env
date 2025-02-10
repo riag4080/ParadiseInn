@@ -1,0 +1,2 @@
+MONGO_URL = 'mongodb+srv://Shweta_Singh:Shweta1210singh@cluster0.ulbwf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+JWT_SECRET = 'PASSWORDSECRET'
