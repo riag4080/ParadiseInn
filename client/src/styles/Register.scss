@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 30%;
+    width: 20%;
     padding: 40px;
     background-color: rgba(102, 96, 96, 0.8);
     border-radius: 20px;
@@ -42,7 +42,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         outline: none;
         text-align: center;
-        color: rgb;
+        color: white;
 
         input:not(:placeholder-shown):focus {
           background: transparent; /* or background: none; */
@@ -53,24 +53,24 @@
         }
       }
 
-      // label {
-      //   display: flex;
-      //   flex-direction: column;
-      //   justify-content: center;
-      //   align-items: center;
-      //   gap: 9px;
-      //   cursor: pointer;
-      //   color: white;
-      //   font-size: 14px;
+      label {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 9px;
+        cursor: pointer;
+        color: white;
+        font-size: 14px;
 
-      //   img {
-      //     width: 25px;
-      //   }
-      // }
+        img {
+          width: 25px;
+        }
+      }
 
       button {
         margin-top: 15px;
-        background-color:green; 
+
         @include buttonStyle;
         width: 50%;
 
