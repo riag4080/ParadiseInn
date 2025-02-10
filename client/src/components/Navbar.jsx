@@ -8,6 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { setLogout } from "../redux/state";
 
 const Navbar = () => {
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
   const [dropdownMenu, setDropdownMenu] = useState(false);
 
   const user = useSelector((state) => state.user);
@@ -24,10 +27,19 @@ const Navbar = () => {
         <img src="/assets/logo.png" alt="logo" class = "logo"/>
 
       </a> */}
-         <a className="name" href="/">
-        ParadiseInn
+         <div className="name" >
+      </div>
+      <a href="/" className="name">
+            Home
       </a>
       
+      <a href="/" className="name">
+            AboutUs     
+      </a>
+      <a href="/" className="name">
+            ContactUs
+      </a>
+  
       <div className="navbar_search">
         <input
           type="text"
@@ -37,7 +49,7 @@ const Navbar = () => {
         />
         <IconButton disabled={search === ""}>
           <Search
-            sx={{ color: variables.pinkred }}
+            sx={{ color: variables.brown }}
             onClick={() => {navigate(`/properties/search/${search}`)}}
           />
         </IconButton>
@@ -100,6 +112,7 @@ const Navbar = () => {
         )}
       </div>
     </div> 
+
   );
 };
 

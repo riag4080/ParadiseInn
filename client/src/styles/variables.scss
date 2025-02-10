@@ -3,6 +3,7 @@ $blue: #24355A;
 $lightgrey: #F7F8F8;
 $grey: #bdb9b9;
 $darkgrey: #969393;
+$brown: #5d4037f0;
 
 
 @mixin shadow {
@@ -22,6 +23,7 @@ $darkgrey: #969393;
 }
 
 :export {
+  brown:$brown;
   pinkred: $pinkred;
   blue: $blue;
   lightgrey: $lightgrey;

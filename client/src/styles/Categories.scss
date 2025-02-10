@@ -7,14 +7,14 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: $lightgrey;
+  background-color: #D7CCC8;
 
   @include sm {
     padding: 50px 20px;
   }
 
   h1 {
-    color: $blue;
+    color: #5D4037;
     font-size: 40px;
     font-weight: 800;
     margin-bottom: 15px;

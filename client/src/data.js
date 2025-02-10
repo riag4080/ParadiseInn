@@ -86,7 +86,7 @@ export const categories = [
     description: "This property is on an island!",
   },
   {
-    img: "assets/lake_cat.jpg",
+    img: "assets/lake_cat.webp",
     label: "Lakefront",
     icon: <GiBoatFishing />,
     description: "This property is near a lake!",
