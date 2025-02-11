@@ -94,7 +94,7 @@
 
     &_accountmenu {
       position: absolute;
-      background-color: white;
+      background-color: #D7CCC8;
       right: 60px;
       top: 80px;
       display: flex;
@@ -114,7 +114,7 @@
         width: 100%;
         padding: 8px 15px;
         text-decoration: none;
-        color: $blue;
+        color: $brown;
         font-weight: 700;
 
         &:hover {

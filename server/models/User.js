@@ -21,6 +21,7 @@ const UserSchema = new mongoose.Schema(
     },
     profileImagePath: {
       type: String,
+      required: false,
       default: "",
     },
     tripList: {

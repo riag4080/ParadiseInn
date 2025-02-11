@@ -23,10 +23,6 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      {/* <a href="/">
-        <img src="/assets/logo.png" alt="logo" class = "logo"/>
-
-      </a> */}
          <div className="name" >
       </div>
       <a href="/" className="name">
@@ -67,23 +63,18 @@ const Navbar = () => {
         )}
 
 <button
-          className="navbar_right_account"
-          onClick={() => setDropdownMenu(!dropdownMenu)}
-        >
-          <Menu sx={{ color: variables.darkgrey }} />
-          {!user ? (
-            <Person sx={{ color: variables.darkgrey }} />
-          ) : (
-            <img
-              src={`http://localhost:3001/${user.profileImagePath.replace(
-                "public",
-                ""
-              )}`}
-              alt="profile photo"
-              style={{ objectFit: "cover", borderRadius: "50%" }}
-            />
-          )}
-        </button>
+  className="navbar_right_account"
+  onClick={() => setDropdownMenu(!dropdownMenu)}
+>
+  <Menu sx={{ color: variables.darkgrey }} />
+  {!user ? (
+    <Person sx={{ color: variables.darkgrey }} />
+  ) : (
+    <span style={{ color: variables.darkgrey, fontWeight: "bold" }}>
+      {user.firstName} {user.lastName}
+    </span>
+  )}
+</button>
 
         {dropdownMenu && !user && (
           <div className="navbar_right_accountmenu">
