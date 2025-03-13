@@ -99,30 +99,30 @@ router.get("/", async (req, res) => {
   }
 })
 
-/* GET LISTINGS BY SEARCH */
-router.get("/search/:search", async (req, res) => {
-  const { search } = req.params
+// /* GET LISTINGS BY SEARCH */
+// router.get("/search/:search", async (req, res) => {
+//   const { search } = req.params
 
-  try {
-    let listings = []
+//   try {
+//     let listings = []
 
-    if (search === "all") {
-      listings = await Listing.find().populate("creator")
-    } else {
-      listings = await Listing.find({
-        $or: [
-          { category: {$regex: search, $options: "i" } },
-          { title: {$regex: search, $options: "i" } },
-        ]
-      }).populate("creator")
-    }
+//     if (search === "all") {
+//       listings = await Listing.find().populate("creator")
+//     } else {
+//       listings = await Listing.find({
+//         $or: [
+//           { category: {$regex: search, $options: "i" } },
+//           { title: {$regex: search, $options: "i" } },
+//         ]
+//       }).populate("creator")
+//     }
 
-    res.status(200).json(listings)
-  } catch (err) {
-    res.status(404).json({ message: "Fail to fetch listings", error: err.message })
-    console.log(err)
-  }
-})
+//     res.status(200).json(listings)
+//   } catch (err) {
+//     res.status(404).json({ message: "Fail to fetch listings", error: err.message })
+//     console.log(err)
+//   }
+// })
 
 /* LISTING DETAILS */
 router.get("/:listingId", async (req, res) => {
