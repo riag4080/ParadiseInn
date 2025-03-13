@@ -1,6 +1,5 @@
-
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 import "../styles/Register.scss";
 
 const RegisterPage = () => {
@@ -10,6 +9,7 @@ const RegisterPage = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    // profileImage: null,
   });
 
   const handleChange = (e) => {
@@ -18,37 +18,38 @@ const RegisterPage = () => {
       ...formData,
       [name]: value,
     });
-  };
+};
 
-  const [passwordMatch, setPasswordMatch] = useState(true);
+  const [passwordMatch, setPasswordMatch] = useState(true)
 
   useEffect(() => {
-    setPasswordMatch(
-      formData.password === formData.confirmPassword || formData.confirmPassword === ""
-    );
-  }, [formData.password, formData.confirmPassword]);
+    setPasswordMatch(formData.password === formData.confirmPassword || formData.confirmPassword === "")
+  })
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
+      const register_form = new FormData()
+
+      for (var key in formData) {
+        register_form.append(key, formData[key])
+      }
+
       const response = await fetch("http://localhost:3001/auth/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+        body: register_form
+      })
 
       if (response.ok) {
-        navigate("/login");
-      } else {
-        console.log("Registration failed");
+        navigate("/login")
       }
     } catch (err) {
-      console.log("Registration failed", err.message);
+      console.log("Registration failed", err.message)
     }
-  };
+  }
 
   return (
     <div className="register">

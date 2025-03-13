@@ -57,7 +57,7 @@ const Listings = () => {
       ) : (
         <div className="listings">
           {listings.map(
-            ({
+            (
               _id,
               creator,
               listingPhotoPaths,
@@ -68,7 +68,7 @@ const Listings = () => {
               type,
               price,
               booking=false
-            }) => (
+            ) => (
               <ListingCard
                 listingId={_id}
                 creator={creator}

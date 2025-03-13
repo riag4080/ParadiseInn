@@ -518,7 +518,6 @@ const CreateListing = () => {
         </form>
       </div>
 
-      {/* <Footer /> */}
     </>
   );
 };

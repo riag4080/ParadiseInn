@@ -9,7 +9,6 @@ import { DateRange } from "react-date-range";
 import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 import { useSelector } from "react-redux";
-import Footer from "../components/Footer"
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -113,11 +112,11 @@ const ListingDetails = () => {
         </div>
 
         <h2>
-          {listing.type} in {listing.city}, {listing.province},{" "}
+          {listing.type} in {listing.city}, {listing.province},
           {listing.country}
         </h2>
         <p>
-          {listing.guestCount} guests - {listing.bedroomCount} bedroom(s) -{" "}
+          {listing.guestCount} guests - {listing.bedroomCount} bedroom(s) -
           {listing.bedCount} bed(s) - {listing.bathroomCount} bathroom(s)
         </p>
         <hr />
@@ -147,7 +146,7 @@ const ListingDetails = () => {
           <div>
             <h2>What this place offers?</h2>
             <div className="amenities">
-              {listing.amenities[0].split(",").map((item, index) => (
+            {listing.amenities[0].split(",").map((item, index) => (
                 <div className="facility" key={index}>
                   <div className="facility_icon">
                     {
@@ -186,9 +185,7 @@ const ListingDetails = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
-    </>
+  </>
   );
 };
 

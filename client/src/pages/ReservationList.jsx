@@ -58,7 +58,6 @@ const ReservationList = () => {
           />
         ))}
       </div>
-      {/* <Footer /> */}
     </>
   );
 };
