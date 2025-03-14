@@ -102,14 +102,24 @@ const ListingDetails = () => {
           <div></div>
         </div>
 
-        <div className="photos">
+        {/* <div className="photos">
           {listing.listingPhotoPaths?.map((item) => (
             <img
               src={`http://localhost:3001/${item.replace("public", "")}`}
               alt="listing photo"
             />
           ))}
-        </div>
+        </div> */}
+
+<div className="photos">
+  {listing.listingPhotoPaths?.map((item) => {
+    if (typeof item !== "string") {
+      console.warn("Skipping invalid photo:", item);
+      return null;
+    }
+    return <img src={`http://localhost:3001/${item.replace("public", "")}`} alt="listing photo" />;
+  })}
+</div>
 
         <h2>
           {listing.type} in {listing.city}, {listing.province},
@@ -121,7 +131,7 @@ const ListingDetails = () => {
         </p>
         <hr />
 
-        <div className="profile">
+        {/* <div className="profile">
           <img
             src={`http://localhost:3001/${listing.creator.profileImagePath.replace(
               "public",
@@ -131,7 +141,22 @@ const ListingDetails = () => {
           <h3>
             Hosted by {listing.creator.firstName} {listing.creator.lastName}
           </h3>
-        </div>
+        </div> */}
+
+<div className="profile">
+  {listing.creator?.profileImagePath ? (
+    <img
+      src={`http://localhost:3001/${listing.creator.profileImagePath.replace("public", "")}`}
+    />
+  ) : (
+    <img src="default-profile.jpg" alt="Default Profile" />
+  )}
+  <h3>
+    Hosted by {listing.creator?.firstName || "Unknown"} {listing.creator?.lastName || ""}
+  </h3>
+</div>
+
+
         <hr />
 
         <h3>Description</h3>

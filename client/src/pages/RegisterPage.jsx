@@ -29,27 +29,42 @@ const RegisterPage = () => {
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+  
+    if (!passwordMatch) {
+      console.error("Passwords do not match!");
+      return;
+    }
+  
+    const userData = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      password: formData.password,
+    };
+  
+   // console.log("Sending Data:", userData); // ✅ Debugging
+  
     try {
-      const register_form = new FormData()
-
-      for (var key in formData) {
-        register_form.append(key, formData[key])
-      }
-
       const response = await fetch("http://localhost:3001/auth/register", {
         method: "POST",
-        body: register_form
-      })
-
-      if (response.ok) {
-        navigate("/login")
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      });
+  
+      const data = await response.json();
+     // console.log("Response Data:", data); // ✅ Debugging
+  
+      if (!response.ok) {
+        throw new Error(data.error || "Registration failed");
       }
+  
+      navigate("/login");
     } catch (err) {
-      console.log("Registration failed", err.message)
+      console.error("Registration failed:", err.message);
     }
-  }
+  };
+  
 
   return (
     <div className="register">

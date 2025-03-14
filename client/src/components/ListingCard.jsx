@@ -75,7 +75,15 @@ const ListingCard = ({
           className="slider"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {listingPhotoPaths?.map((photo, index) => (
+          {listingPhotoPaths?.map((photo, index) => {
+             console.log("Photo value:", photo, "Type:", typeof photo); // Debugging
+
+             if (typeof photo !== "string") {
+               console.warn("Skipping invalid photo:", photo); // Debugging
+               return null; // Skip non-string values
+             }
+           
+             return (
             <div key={index} className="slide">
               <img
                 src={`http://localhost:3001/${photo?.replace("public", "")}`}
@@ -100,7 +108,7 @@ const ListingCard = ({
                 <ArrowForwardIos sx={{ fontSize: "15px" }} />
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
 
