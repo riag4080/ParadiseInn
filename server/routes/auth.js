@@ -1,20 +1,8 @@
+const express = require("express");
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
 const User = require("../models/User");
-
-// /* Configuration Multer for File Upload */
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "public/uploads/"); // Store uploaded files in the 'uploads' folder
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname); // Use the original file name
-//   },
-// });
-
-// const upload = multer({ storage });
 
 /* USER REGISTER */
 router.post("/register", async (req, res) => {
@@ -53,7 +41,6 @@ router.post("/register", async (req, res) => {
       lastName,
       email,
       password: hashedPassword,
-      // profileImagePath,
     });
 
     /* Save the new User */
@@ -79,6 +66,8 @@ router.post("/login", async (req, res) => {
 
     /* Check if user exists */
     const user = await User.findOne({ email });
+    console.log("Fetched user from DB:", user); // ➡️ Add this to check if the user is found
+
     if (!user) {
       return res.status(404).json({ message: "User doesn't exist!" });
     }

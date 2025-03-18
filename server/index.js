@@ -28,6 +28,11 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
+    console.log(`MongoDB Connected Successfully!`);
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
   })
   .catch((err) => console.log(`${err} did not connect`));
+
+app.get("/test", (req, res) => {
+  res.json({ message: "Backend is working!" });
+});
